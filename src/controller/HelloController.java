@@ -1,0 +1,17 @@
+package controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+ 
+@Controller
+public class HelloController {
+	Man man= new Man();
+    @RequestMapping(value="/greet",method=RequestMethod.GET)
+    public String sayHello(Model model) {
+//    	man.phoneNumber=name;
+        model.addAttribute("msg", "Hello, Spring MVC!"+man.get());
+        return "hello";
+    }
+}
+
